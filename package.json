@@ -1,0 +1,32 @@
+{
+  "name": "tweet-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build ./src/client.js ./src/index.js",
+    "start": "wp-scripts start ./src/client.js ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greenpeace/tweet-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/greenpeace/tweet-generator/issues"
+  },
+  "homepage": "https://github.com/greenpeace/tweet-generator#readme",
+  "dependencies": {
+    "@wordpress/block-editor": "^10.3.0",
+    "@wordpress/blocks": "^11.19.0",
+    "@wordpress/components": "^21.3.0",
+    "@wordpress/data": "^7.4.0",
+    "@wordpress/element": "^4.18.0",
+    "@wordpress/i18n": "^4.20.0"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^24.4.0"
+  }
+}

@@ -28,13 +28,13 @@ Install wordpress environment
 npm install -g @wordpress/env
 ```
 
-In one terminal run:
+In one terminal within project directory run:
 
 ```bash
   npm run build && npm run start
 ```
 
-In another terminal run:
+In another terminal within project directory run:
 ```bash
   wp-env start
 ```

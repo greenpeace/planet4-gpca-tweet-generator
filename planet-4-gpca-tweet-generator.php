@@ -38,13 +38,13 @@
 		filemtime( "$dir/$editor_style" )
 	);
 
-    $style = 'build/style-index.css';
-	wp_register_style(
-		'tweetgen-block',
-		plugins_url( $style, __FILE__ ),
-		array(),
-		filemtime( "$dir/$style" )
-	);
+    // $style = 'build/style-index.css';
+	// wp_register_style(
+	// 	'tweetgen-block',
+	// 	plugins_url( $style, __FILE__ ),
+	// 	array(),
+	// 	filemtime( "$dir/$style" )
+	// );
 
     register_block_type(
         'twitter/tweetgen',
@@ -78,7 +78,7 @@
 }
 
 add_action('init', 'tweetgen_block_tweetgen_block_init');
-add_filter('allowed_block_types', 'p4_child_theme_gpca_whitelist_blocks', 11, 2);
+add_filter('allowed_block_types_all', 'p4_child_theme_gpca_whitelist_blocks', 11, 2);
 add_action( 'wp_headers', static function ( $headers ): array {
 	if ( empty( $headers['Content-Security-Policy'] ) ) {
 		return $headers;

@@ -1,11 +1,6 @@
 import React from 'react'
+import Preview from './Preview'
 
-const Save = () => {
-  return (
-    <>
-      <div>Save Component</div>
-    </>
-  )
-}
+const Save = (props) => <Preview {...props} />
 
 export default Save

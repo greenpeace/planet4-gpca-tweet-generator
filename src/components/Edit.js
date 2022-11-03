@@ -1,21 +1,15 @@
-import React from 'react'
 import { PanelBody, TextareaControl } from '@wordpress/components'
 import { InspectorControls } from '@wordpress/block-editor'
 
 import Preview from './Preview'
 import updater from '../utils/updater'
 
-const Edit = ({
-  attributes: {
-    data
-  },
-  setAttributes
-}) => {
-  const updateAttribute = updater(setAttributes);
+const Edit = ({ attributes: { data }, setAttributes }) => {
+  const updateAttribute = updater(setAttributes)
   return (
     <>
       <InspectorControls>
-        <PanelBody title={'Config'} initialOpen={true}>
+        <PanelBody title={'Enter your JSON here'} initialOpen={true}>
           <TextareaControl
             label='JSON'
             help="Ask Mohammad for help if you don't know what to put here ;)"
@@ -24,6 +18,7 @@ const Edit = ({
           />
         </PanelBody>
       </InspectorControls>
+
       <Preview attributes={{ data }} />
     </>
   )

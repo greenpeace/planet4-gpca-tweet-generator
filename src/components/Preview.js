@@ -1,4 +1,4 @@
-import React from 'react'
+import Form from './Form'
 
 const Preview = ({ attributes: { data } }) => {
   if (!data) {
@@ -11,12 +11,7 @@ const Preview = ({ attributes: { data } }) => {
     }
     return (
       <>
-        <div>Save Component</div>
-        <select>
-          {parsed.banks.map((bank) => {
-            return <option>{bank}</option>
-          })}
-        </select>
+        <Form data={parsed} />
       </>
     )
   } catch (ex) {

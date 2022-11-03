@@ -1,13 +1,13 @@
 import { PanelBody, TextareaControl } from '@wordpress/components'
-import { InspectorControls } from '@wordpress/block-editor'
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor'
 
-import Preview from './Preview'
 import updater from '../utils/updater'
+import Form from './Form'
 
 const Edit = ({ attributes: { data }, setAttributes }) => {
   const updateAttribute = updater(setAttributes)
   return (
-    <>
+    <div {...useBlockProps()}>
       <InspectorControls>
         <PanelBody title={'Enter your JSON here'} initialOpen={true}>
           <TextareaControl
@@ -19,8 +19,10 @@ const Edit = ({ attributes: { data }, setAttributes }) => {
         </PanelBody>
       </InspectorControls>
 
-      <Preview attributes={{ data }} />
-    </>
+      <div className='mt-block-user-card-wrapper'>
+        <Form attributes={{ data }} />
+      </div>
+    </div>
   )
 }
 

@@ -4,11 +4,18 @@ import Form from './Form'
 export default function Wrapper(props) {
   const { attributes } = props
 
-  const [data, setData] = useState(attributes.data)
+  const [selectedBank, setSelectedBank] = useState(null)
+  const [selectedCharacter, setSelectedCharacter] = useState(null)
 
   return (
-    <div data-mt-attributes={attributes}>
-      <Form attributes={attributes} data={data} setData={setData} />
+    <div className='mt-block-tweet-generator' data-mt-attributes={attributes}>
+      <Form
+        attributes={attributes}
+        selectedBank={selectedBank}
+        setSelectedBank={setSelectedBank}
+        selectedCharacter={selectedCharacter}
+        setSelectedCharacter={setSelectedCharacter}
+      />
     </div>
   )
 }

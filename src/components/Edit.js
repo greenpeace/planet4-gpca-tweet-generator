@@ -2,10 +2,12 @@ import { PanelBody, TextareaControl } from '@wordpress/components'
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor'
 
 import updater from '../utils/updater'
-import Form from './Form'
+import Wrapper from './Wrapper'
 
-const Edit = ({ attributes: { data }, setAttributes }) => {
+const Edit = ({ attributes, setAttributes }) => {
+  const { data } = attributes
   const updateAttribute = updater(setAttributes)
+
   return (
     <div {...useBlockProps()}>
       <InspectorControls>
@@ -19,8 +21,8 @@ const Edit = ({ attributes: { data }, setAttributes }) => {
         </PanelBody>
       </InspectorControls>
 
-      <div className='mt-block-user-card-wrapper'>
-        <Form attributes={{ data }} />
+      <div className='mt-block-tweet-generator-wrapper'>
+        <Wrapper attributes={attributes} />
       </div>
     </div>
   )

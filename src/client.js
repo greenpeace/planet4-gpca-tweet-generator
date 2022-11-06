@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom'
 import Wrapper from './components/Wrapper'
 
 window.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelectorAll('mt-block-user-card-wrapper')
-
-  if (form) {
-    ReactDOM.hydrate(<Wrapper />, form)
+  const forms = document.querySelectorAll('.mt-block-tweet-generator')
+  if (forms) {
+    Array.from(forms).forEach(((form) => {
+      const attributes = JSON.parse(form?.dataset?.mtAttributes || null)
+      ReactDOM.hydrate(<Wrapper attributes={attributes} />, form)
+    }))
   }
 })

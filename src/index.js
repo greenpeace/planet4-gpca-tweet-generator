@@ -6,7 +6,7 @@ import Save from './components/Save'
 import './styles/index.scss'
 
 const exampleAttributes = {
-  data: '{}',
+  data: '{"banks":{"<bankName>":{"name":"BANK NAME"}},"characters":{"<characterName>":{"name":"CHARACTER NAME"}}}',
 }
 
 registerBlockType('twitter/tweetgen', {

@@ -1,6 +1,22 @@
 import React from 'react'
 
-const Form = ({ attributes, selectedBank, setSelectedBank, selectedCharacter, setSelectedCharacter }) => {
+import Tweet from './Tweet'
+
+import maybeRenderImagePicker from '../utils/maybeRenderImagePicker'
+
+const Form = ({
+  attributes,
+  selectedTarget,
+  setSelectedTarget,
+  selectedCharacter,
+  setSelectedCharacter,
+  characterImage,
+  setCharacterImage,
+  imageUrl,
+  setImageUrl,
+  selectedTweetTemplate,
+  setSelectedTweetTemplate,
+}) => {
   if (!attributes) {
     return null
   }
@@ -9,32 +25,72 @@ const Form = ({ attributes, selectedBank, setSelectedBank, selectedCharacter, se
   if (!data) {
     return null
   }
+  const parsed = JSON.parse(data)
+
+  const { characters, targets } = parsed
+
+  const tweet = {
+    target: targets[selectedTarget]?.['twitter-en'],
+    imgPreview: characterImage,
+    imgURL: imageUrl,
+    body: selectedTweetTemplate,
+    character: characters[selectedCharacter]?.name,
+  }
 
   try {
-    const parsed = JSON.parse(data)
     return (
       <div className='form-container'>
         <label>Pick Target</label>
-        <select onChange={({ target }) => {
-          setSelectedBank(target.value)
-        }} defaultValue={selectedBank}>
-          <option>Select Target</option>
-          {Object.keys(parsed.banks).map((key, i) => (
-            <option key={i}>{parsed.banks[key].name}</option>
+        <select
+          onChange={({ target }) => {
+            setSelectedTarget(target.value)
+          }}
+        >
+          <option value=''>Select Target</option>
+          {Object.keys(targets).map((key, i) => (
+            <option key={i} value={key}>
+              {targets[key].name}
+            </option>
           ))}
         </select>
 
         <label>Pick Character</label>
-        <select onChange={({ target }) => {
-          setSelectedCharacter(target.value)
-        }} defaultValue={selectedCharacter}>
-          <option>Pick Character</option>
-          {Object.keys(parsed.characters).map((key, i) => (
-            <option key={i}>{parsed.characters[key].name}</option>
+        <select
+          onChange={({ target }) => {
+            setSelectedCharacter(target.value)
+            setImageUrl(undefined)
+          }}
+        >
+          <option value=''>Pick Character</option>
+          {Object.keys(characters).map((key, i) => (
+            <option key={i} value={key}>
+              {characters[key].name}
+            </option>
           ))}
         </select>
-        <p>Selected bank: {selectedBank}</p>
-        <p>Selected character: {selectedCharacter}</p>
+
+        {maybeRenderImagePicker(
+          selectedCharacter,
+          characters,
+          characterImage,
+          setCharacterImage,
+          setImageUrl
+        )}
+
+        <label>Select Template</label>
+        {parsed['tweet-body'].map((item, i) => (
+          <div key={i} className='rb-container'>
+            <input
+              type='radio'
+              name='body'
+              value={item['tweet-en']}
+              onChange={({ target }) => setSelectedTweetTemplate(target.value)}
+            />
+            <label>{item['tweet-en']}</label>
+          </div>
+        ))}
+
+        <Tweet tweet={tweet} />
       </div>
     )
   } catch (error) {

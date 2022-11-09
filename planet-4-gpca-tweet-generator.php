@@ -38,20 +38,20 @@ function tweetgen_block_tweetgen_block_init() {
 		filemtime( "$dir/$editor_style" )
 	);
 
-    // $style = 'build/style-index.css';
-	// wp_register_style(
-	// 	'tweetgen-block',
-	// 	plugins_url( $style, __FILE__ ),
-	// 	array(),
-	// 	filemtime( "$dir/$style" )
-	// );
+    $style = 'build/index.css';
+	wp_register_style(
+		'tweetgen-block',
+		plugins_url( $style, __FILE__ ),
+		array(),
+		filemtime( "$dir/$style" )
+	);
 
     register_block_type(
         'twitter/tweetgen',
         array(
             'editor_script' => 'tweetgen-block-editor',
-            'editor_style'  => 'tweetgen-block-editor'
-            // 'style'         => 'tweetgen-block'
+            'editor_style'  => 'tweetgen-block-editor',
+            'style'         => 'tweetgen-block'
         )
     );
 }

@@ -30,7 +30,7 @@ const Form = ({
   const { characters, targets } = parsed
 
   const tweet = {
-    target: targets[selectedTarget]?.['twitter-en'],
+    target: targets?.[selectedTarget]?.['twitter-en'],
     imgPreview: characterImage,
     imgURL: imageUrl,
     body: selectedTweetTemplate,
@@ -47,7 +47,7 @@ const Form = ({
           }}
         >
           <option value=''>Select Target</option>
-          {Object.keys(targets).map((key, i) => (
+          {Object.keys(targets || {}).map((key, i) => (
             <option key={i} value={key}>
               {targets[key].name}
             </option>
@@ -78,7 +78,7 @@ const Form = ({
         )}
 
         <label>Select Template</label>
-        {parsed['tweet-body'].map((item, i) => (
+        {(parsed['tweet-body'] || []).map((item, i) => (
           <div key={i} className='rb-container'>
             <input
               type='radio'

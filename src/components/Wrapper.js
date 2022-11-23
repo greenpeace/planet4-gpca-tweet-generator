@@ -9,6 +9,7 @@ export default function Wrapper(props) {
   const [characterImage, setCharacterImage] = useState(undefined)
   const [imageUrl, setImageUrl] = useState(undefined)
   const [selectedTweetTemplate, setSelectedTweetTemplate] = useState(undefined)
+  const [disabled, setDisabled] = useState(true)
 
   return (
     <div className='mt-block-tweet-generator' data-mt-attributes={attributes}>
@@ -24,6 +25,8 @@ export default function Wrapper(props) {
         setImageUrl={setImageUrl}
         selectedTweetTemplate={selectedTweetTemplate}
         setSelectedTweetTemplate={setSelectedTweetTemplate}
+        disabled={disabled}
+        setDisabled={setDisabled}
       />
     </div>
   )

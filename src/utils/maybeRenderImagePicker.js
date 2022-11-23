@@ -12,23 +12,22 @@ export default function maybeRenderImagePicker(
   return (
     <>
       <label>Select Image</label>
-      <div className='preview-img-container'>
-        {characters[selectedCharacter].images.map((characterImg, i) => (
-          <React.Fragment key={i}>
-            <input
-              type='radio'
-              value={characterImg}
-              checked={characterImg.preview === characterImage}
-              onChange={() => {
-                setCharacterImage(characterImg.preview)
-                setImageUrl(characterImg.value)
-              }}
-            />
 
-            <img src={characterImg.preview} className='preview-image' />
-          </React.Fragment>
-        ))}
-      </div>
+      {characters[selectedCharacter].images.map((characterImg, i) => (
+        <div className='preview-image-container' key={i}>
+          <input
+            type='radio'
+            value={characterImg}
+            checked={characterImg.preview === characterImage}
+            onChange={() => {
+              setCharacterImage(characterImg.preview)
+              setImageUrl(characterImg.value)
+            }}
+          />
+
+          <img src={characterImg.preview} className='preview-image' />
+        </div>
+      ))}
     </>
   )
 }

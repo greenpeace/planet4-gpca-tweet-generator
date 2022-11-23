@@ -3,7 +3,8 @@ import { __ } from '@wordpress/i18n'
 
 import Edit from './components/Edit'
 import Save from './components/Save'
-import './styles/index.scss'
+
+import './index.scss'
 
 const exampleAttributes = {
   data: '{"banks":{"<bankName>":{"name":"BANK NAME"}},"characters":{"<characterName>":{"name":"CHARACTER NAME"}}}',

@@ -101,7 +101,7 @@ const Form = ({
             }}
           >
             <option value=''>Select Character</option>
-            {Object.keys(characters).map((key, i) => (
+            {Object.keys(characters || {}).map((key, i) => (
               <option key={i} value={key}>
                 {characters[key].name}
               </option>
@@ -138,6 +138,7 @@ const Form = ({
       </div>
     )
   } catch (error) {
+    console.error(error)
     return <p>Incorrect JSON</p>
   }
 }

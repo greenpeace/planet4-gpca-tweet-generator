@@ -13,7 +13,7 @@ export default function maybeRenderImagePicker(
     <>
       <label>Select Image</label>
 
-      {characters[selectedCharacter].images.map((characterImg, i) => (
+      {(characters[selectedCharacter]?.images || []).map((characterImg, i) => (
         <div className='preview-image-container' key={i}>
           <input
             type='radio'

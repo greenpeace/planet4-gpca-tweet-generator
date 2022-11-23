@@ -7,7 +7,7 @@ import Save from './components/Save'
 import './index.scss'
 
 const exampleAttributes = {
-  data: '{"banks":{"<bankName>":{"name":"BANK NAME"}},"characters":{"<characterName>":{"name":"CHARACTER NAME"}}}',
+  data: '{"banks":{"<bankName>":{"name":"BANK NAME"}},"characters":{"<characterName>":{"name":"CHARACTER NAME", "images": [{ "preview": "https://via.placeholder.com/512", "value": "https://via.placeholder.com/512" }]}}}',
 }
 
 registerBlockType('twitter/tweetgen', {

@@ -71,36 +71,27 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  .container {
-    width: 70vw;
-    margin: 0 auto;
-
-    .preview-image {
-      width: 40% !important;
-    }
-  }
-
-  .tweet-image {
-    height: 35vh !important;
-    align-self: center;
-  }
+  //   .tweet-image {
+  //     height: 35vh !important;
+  //     align-self: center;
+  //   }
 }
 
 @media screen and (min-width: 1024px) {
   .tweet-card {
-    width: 30vw;
+    width: 35vw;
   }
 }
 
 @media screen and (min-width: 1700px) and (max-width: 2099px) {
   .tweet-card {
-    width: 20vw;
+    width: 25vw;
 
-    .tweet-image {
-      height: 30vh;
-      width: 30vh;
-      align-self: center;
-    }
+    // .tweet-image {
+    //   height: 30vh;
+    //   width: 30vh;
+    //   align-self: center;
+    // }
   }
 }
 
@@ -109,9 +100,9 @@
     width: 20vw;
 
     .tweet-image {
-      height: 40vh;
-      width: 35vh;
-      align-self: center;
+      //   height: 40vh;
+      //   width: 35vh;
+      //   align-self: center;
     }
   }
 }

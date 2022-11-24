@@ -72,14 +72,14 @@ add_action(
     }
 );
 
-function p4_child_theme_gpca_whitelist_blocks( $allowed_blocks, $post ) {
+function p4_child_theme_gpca_twitter_generator_block( $allowed_blocks, $post ) {
 	$allowed = is_array($allowed_blocks) ? $allowed_blocks : array();
 	array_push($allowed, 'twitter/tweetgen');
 	return $allowed;
 }
 
 add_action('init', 'tweetgen_block_tweetgen_block_init');
-add_filter('allowed_block_types_all', 'p4_child_theme_gpca_whitelist_blocks', 11, 2);
+add_filter('allowed_block_types_all', 'p4_child_theme_gpca_twitter_generator_block', 11, 2);
 add_action( 'wp_headers', static function ( $headers ): array {
 	if ( empty( $headers['Content-Security-Policy'] ) ) {
 		return $headers;

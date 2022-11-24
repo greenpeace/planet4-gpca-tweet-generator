@@ -1,0 +1,86 @@
+// Form Styling
+.container {
+  display: flex;
+  flex-direction: column;
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+
+    select {
+      margin-bottom: 10px;
+      padding: 8px;
+    }
+
+    .preview-image-wrapper {
+      display: flex;
+      flex-direction: row;
+      .preview-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+
+        .preview-image {
+          width: 80%;
+          margin-bottom: 15px;
+        }
+      }
+    }
+
+    .tweet-body-container {
+      margin-bottom: 15px;
+      border: 1px solid #00acee;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+
+      & input {
+        margin-right: 10px;
+        height: 1rem;
+        width: auto;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 668px) and (max-width: 1023px) {
+  .container {
+    width: 70vw;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+    justify-content: center;
+
+    .form-container {
+      margin-right: 2rem;
+      width: 40vw;
+    }
+  }
+}
+
+@media screen and (min-width: 1700px) and (max-width: 2099px) {
+  .container {
+    justify-content: center;
+
+    .form-container {
+      width: 30vw;
+    }
+  }
+}
+
+@media screen and (min-width: 2100px) and (max-width: 3500px) {
+  .container {
+    justify-content: center;
+
+    .form-container {
+      width: 30vw;
+    }
+  }
+}

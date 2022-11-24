@@ -11,7 +11,7 @@
  * @package         tweet-generator-block
  */
 
- function tweetgen_block_tweetgen_block_init() {
+function tweetgen_block_tweetgen_block_init() {
     $dir = __DIR__;
 
     $script_asset_path = "$dir/build/index.asset.php";
@@ -38,13 +38,13 @@
 		filemtime( "$dir/$editor_style" )
 	);
 
-    // $style = 'build/style-index.css';
-	// wp_register_style(
-	// 	'tweetgen-block',
-	// 	plugins_url( $style, __FILE__ ),
-	// 	array(),
-	// 	filemtime( "$dir/$style" )
-	// );
+    $style = 'build/index.css';
+	wp_register_style(
+		'tweetgen-block',
+		plugins_url( $style, __FILE__ ),
+		array(),
+		filemtime( "$dir/$style" )
+	);
 
     register_block_type(
         'twitter/tweetgen',
@@ -54,24 +54,25 @@
             'style'         => 'tweetgen-block'
         )
     );
- }
+}
 
- add_action(
+add_action(
     'wp_enqueue_scripts',
     static function () {
         if(has_block('twitter/tweetgen')) {
+            $asset = include(plugin_dir_path(__FILE__) . 'build/client.asset.php');
             wp_enqueue_script(
                 'tweetgen-block',
                 plugins_url('build/client.js', __FILE__),
-                [],
-                '0.1.0',
+                $asset['dependencies'],
+                $asset['version'],
                 true
             );
         }
     }
- );
+);
 
- function p4_child_theme_gpca_whitelist_blocks( $allowed_blocks, $post ) {
+function p4_child_theme_gpca_whitelist_blocks( $allowed_blocks, $post ) {
 	$allowed = is_array($allowed_blocks) ? $allowed_blocks : array();
 	array_push($allowed, 'twitter/tweetgen');
 	return $allowed;
@@ -86,4 +87,3 @@ add_action( 'wp_headers', static function ( $headers ): array {
 	$headers['Content-Security-Policy'] .= '; worker-src blob: ; child-src * blob: ; img-src data: blob: http: https: ';
 	return $headers;
 }, 11, 1);
- 

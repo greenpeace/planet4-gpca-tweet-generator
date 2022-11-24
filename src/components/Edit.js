@@ -1,21 +1,17 @@
-import React from 'react'
 import { PanelBody, TextareaControl } from '@wordpress/components'
-import { InspectorControls } from '@wordpress/block-editor'
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor'
 
-import Preview from './Preview'
 import updater from '../utils/updater'
+import Wrapper from './Wrapper'
 
-const Edit = ({
-  attributes: {
-    data
-  },
-  setAttributes
-}) => {
-  const updateAttribute = updater(setAttributes);
+const Edit = ({ attributes, setAttributes }) => {
+  const { data } = attributes
+  const updateAttribute = updater(setAttributes)
+
   return (
-    <>
+    <div {...useBlockProps()}>
       <InspectorControls>
-        <PanelBody title={'Config'} initialOpen={true}>
+        <PanelBody title={'Enter your JSON here'} initialOpen={true}>
           <TextareaControl
             label='JSON'
             help="Ask Mohammad for help if you don't know what to put here ;)"
@@ -24,8 +20,11 @@ const Edit = ({
           />
         </PanelBody>
       </InspectorControls>
-      <Preview attributes={{ data }} />
-    </>
+
+      <div className='mt-block-tweet-generator-wrapper'>
+        <Wrapper attributes={attributes} />
+      </div>
+    </div>
   )
 }
 

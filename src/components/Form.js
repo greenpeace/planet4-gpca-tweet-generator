@@ -48,8 +48,6 @@ const Form = ({
       body,
     } = tweet
 
-    console.log(target)
-
     if (
       body !== undefined &&
       target !== undefined &&

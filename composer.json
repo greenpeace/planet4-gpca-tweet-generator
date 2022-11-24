@@ -1,0 +1,16 @@
+{
+  "name": "greenpeace/planet4-gpca-tweet-generator",
+  "description": "Generate tweets from a selection of drop down menus",
+  "type": "wordpress-plugin",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Shawn Inder,",
+      "email": "shawninder@gmail.com"
+    },
+    {
+      "name": "Mohammad Rafey",
+      "email": "mrafey@greenpeace.org"
+    }
+  ]
+}

@@ -75,7 +75,7 @@ const Form = ({
     const tweetURL = `https://twitter.com/intent/tweet?text=${tweetContent}%20${imgURL}`
 
     return (
-      <div className='container'>
+      <div className='tweet-container'>
         <div className='form-container'>
           <label>Pick Target*</label>
           <select

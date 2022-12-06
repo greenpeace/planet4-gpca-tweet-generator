@@ -96,6 +96,7 @@ const Form = ({
             onChange={({ target }) => {
               setSelectedCharacter(target.value)
               setImageUrl(undefined)
+              setCharacterImage(undefined)
             }}
           >
             <option value=''>Select Character</option>

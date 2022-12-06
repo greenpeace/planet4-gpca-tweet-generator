@@ -2,3 +2,32 @@
 @import './styles/components/form';
 @import './styles/components/tweetcard';
 @import './styles/components/button';
+
+// Styling of inputs to persist on all web browsers
+input[type='radio'] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 10px !important;
+  border: 2px solid #767676;
+  border-radius: 50%;
+}
+
+input[type='radio']:hover {
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+input[type='radio']:checked {
+  background-color: #767676;
+  border: 2px solid #fff;
+}
+
+@media screen and (min-width: 668px) {
+  .post-content {
+    .mt-block-tweet-generator-wrapper {
+      margin-right: -20em !important;
+      margin-left: -20em !important;
+    }
+  }
+}

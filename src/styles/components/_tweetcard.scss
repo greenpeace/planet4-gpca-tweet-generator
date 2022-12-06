@@ -1,7 +1,7 @@
 // Tweet Card Component Styles
 .tweet-card-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 .tweet-card {
   display: flex;
@@ -70,14 +70,10 @@
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  //   .tweet-image {
-  //     height: 35vh !important;
-  //     align-self: center;
-  //   }
-}
-
 @media screen and (min-width: 1024px) {
+  .tweet-card-container {
+    flex-direction: column;
+  }
   .tweet-card {
     width: 35vw;
   }
@@ -86,23 +82,11 @@
 @media screen and (min-width: 1700px) and (max-width: 2099px) {
   .tweet-card {
     width: 25vw;
-
-    // .tweet-image {
-    //   height: 30vh;
-    //   width: 30vh;
-    //   align-self: center;
-    // }
   }
 }
 
 @media screen and (min-width: 2100px) and (max-width: 3500px) {
   .tweet-card {
     width: 20vw;
-
-    .tweet-image {
-      //   height: 40vh;
-      //   width: 35vh;
-      //   align-self: center;
-    }
   }
 }

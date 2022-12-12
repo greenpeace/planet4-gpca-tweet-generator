@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Button = ({ href, disabled }) => {
+const Button = ({ href, disabled, text }) => {
   return (
     <a
       href={href}
@@ -8,7 +8,7 @@ const Button = ({ href, disabled }) => {
       rel='noopener'
       className={disabled ? 'btn-disabled' : 'tweet-btn'}
     >
-      Click to tweet
+      {text}
     </a>
   )
 }

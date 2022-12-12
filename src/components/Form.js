@@ -30,7 +30,7 @@ const Form = ({
   try {
     const parsed = JSON.parse(data)
 
-    const { characters, targets, labels } = parsed
+    const { characters, targets, labels, button } = parsed
 
     const tweet = {
       target: targets?.[selectedTarget]?.['twitter-handle'],
@@ -132,7 +132,7 @@ const Form = ({
         </div>
         <div className='tweet-card-container'>
           <Tweet tweet={tweet} updatedTweetBody={updatedTweetBody} />
-          <Button disabled={disabled} href={tweetURL} />
+          <Button disabled={disabled} href={tweetURL} text={button.text} />
         </div>
       </div>
     )

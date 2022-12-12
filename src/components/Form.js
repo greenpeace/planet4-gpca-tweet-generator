@@ -30,7 +30,7 @@ const Form = ({
   try {
     const parsed = JSON.parse(data)
 
-    const { characters, targets } = parsed
+    const { characters, targets, labels } = parsed
 
     const tweet = {
       target: targets?.[selectedTarget]?.['twitter-handle'],
@@ -77,7 +77,7 @@ const Form = ({
     return (
       <div className='tweet-container'>
         <div className='form-container'>
-          <label className='step-label'>Step 1: Pick Target</label>
+          <label className='step-label'>{labels.label_1.name}</label>
           <select
             onChange={({ target }) => {
               setSelectedTarget(target.value)
@@ -91,7 +91,7 @@ const Form = ({
             ))}
           </select>
 
-          <label className='step-label'>Step 2: Pick Endangered Species</label>
+          <label className='step-label'>{labels.label_2.name}</label>
           <select
             onChange={({ target }) => {
               setSelectedCharacter(target.value)
@@ -115,7 +115,7 @@ const Form = ({
             setImageUrl
           )} */}
 
-          <label className='step-label'>Step 3: Select Template</label>
+          <label className='step-label'>{labels.label_3.name}</label>
           {(parsed['tweet-body'] || []).map((item, i) => (
             <div key={i} className='tweet-body-container'>
               <input

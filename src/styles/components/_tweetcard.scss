@@ -2,6 +2,7 @@
 .tweet-card-container {
   display: flex;
   flex-direction: column-reverse;
+  justify-content: flex-end;
 }
 .tweet-card {
   display: flex;
@@ -71,9 +72,6 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .tweet-card-container {
-    flex-direction: column;
-  }
   .tweet-card {
     width: 35vw;
   }

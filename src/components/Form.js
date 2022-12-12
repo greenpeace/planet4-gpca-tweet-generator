@@ -9,10 +9,10 @@ const Form = ({
   setSelectedTarget,
   selectedCharacter,
   setSelectedCharacter,
-  characterImage,
-  setCharacterImage,
-  imageUrl,
-  setImageUrl,
+  // characterImage,
+  // setCharacterImage,
+  // imageUrl,
+  // setImageUrl,
   selectedTweetTemplate,
   setSelectedTweetTemplate,
   disabled,
@@ -34,8 +34,8 @@ const Form = ({
 
     const tweet = {
       target: targets?.[selectedTarget]?.['twitter-handle'],
-      imgPreview: characterImage,
-      imgURL: imageUrl,
+      // imgPreview: characterImage,
+      // imgURL: imageUrl,
       body: selectedTweetTemplate,
       character: characters[selectedCharacter]?.name,
     }
@@ -43,8 +43,8 @@ const Form = ({
     const {
       target = '<target>',
       character = '<character>',
-      imgPreview,
-      imgURL,
+      // imgPreview,
+      // imgURL,
       body,
     } = tweet
 
@@ -52,8 +52,8 @@ const Form = ({
       body !== undefined &&
       target !== undefined &&
       target !== '<target>' &&
-      imgPreview !== undefined &&
-      imgURL !== undefined &&
+      // imgPreview !== undefined &&
+      // imgURL !== undefined &&
       character !== undefined &&
       character !== '<character>'
     ) {
@@ -72,12 +72,12 @@ const Form = ({
       tweetContent = updatedTweetBody.replaceAll('#', '%40')
     }
 
-    const tweetURL = `https://twitter.com/intent/tweet?text=${tweetContent}%20${imgURL}`
+    const tweetURL = `https://twitter.com/intent/tweet?text=${tweetContent}`
 
     return (
       <div className='tweet-container'>
         <div className='form-container'>
-          <label>Pick Target*</label>
+          <label className='step-label'>Step 1: Pick Target</label>
           <select
             onChange={({ target }) => {
               setSelectedTarget(target.value)
@@ -91,15 +91,15 @@ const Form = ({
             ))}
           </select>
 
-          <label>Pick Character*</label>
+          <label className='step-label'>Step 2: Pick Endangered Species</label>
           <select
             onChange={({ target }) => {
               setSelectedCharacter(target.value)
-              setImageUrl(undefined)
-              setCharacterImage(undefined)
+              // setImageUrl(undefined)
+              // setCharacterImage(undefined)
             }}
           >
-            <option value=''>Select Character</option>
+            <option value=''>Select Species</option>
             {Object.keys(characters || {}).map((key, i) => (
               <option key={i} value={key}>
                 {characters[key].name}
@@ -107,15 +107,15 @@ const Form = ({
             ))}
           </select>
 
-          {maybeRenderImagePicker(
+          {/* {maybeRenderImagePicker(
             selectedCharacter,
             characters,
             characterImage,
             setCharacterImage,
             setImageUrl
-          )}
+          )} */}
 
-          <label>Select Template*</label>
+          <label className='step-label'>Step 3: Select Template</label>
           {(parsed['tweet-body'] || []).map((item, i) => (
             <div key={i} className='tweet-body-container'>
               <input

@@ -7,8 +7,8 @@ import {
   BsThreeDots,
 } from 'react-icons/bs'
 
-import placeholder from '../static/placeholder-image.png'
-import logo from '../static/logo.png'
+import placeholder from '../static/cbd-image.png'
+import logo from '../static/tweet-logo.png'
 
 const Tweet = ({ tweet, updatedTweetBody }) => {
   const { imgPreview, body } = tweet
@@ -20,8 +20,8 @@ const Tweet = ({ tweet, updatedTweetBody }) => {
           <img src={logo} alt='Greenpeace logo' />
           <div className='heading-container'>
             <div className='heading-info'>
-              <p className='twitter-name'>Greenpeace Canada</p>
-              <span className='twitter-handle'>@GreenpeaceCA</span>
+              <p className='twitter-name'>Your Name</p>
+              <span className='twitter-handle'>@YourTwitterHandle</span>
             </div>
             <BsThreeDots />
           </div>

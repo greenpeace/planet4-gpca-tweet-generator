@@ -69,7 +69,7 @@ const Form = ({
         .replace('<target>', target)
         .replace('<character>', character)
 
-      tweetContent = updatedTweetBody.replaceAll('#', '%40')
+      tweetContent = updatedTweetBody.replaceAll('#', '%23')
     }
 
     const tweetURL = `https://twitter.com/intent/tweet?text=${tweetContent}`

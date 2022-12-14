@@ -5,8 +5,8 @@ import maybeRenderImagePicker from '../utils/maybeRenderImagePicker'
 
 const Form = ({
   attributes,
-  selectedTarget,
-  setSelectedTarget,
+  // selectedTarget,
+  // setSelectedTarget,
   selectedCharacter,
   setSelectedCharacter,
   // characterImage,
@@ -33,7 +33,7 @@ const Form = ({
     const { characters, targets, labels, button } = parsed
 
     const tweet = {
-      target: targets?.[selectedTarget]?.['twitter-handle'],
+      // target: targets?.[selectedTarget]?.['twitter-handle'],
       // imgPreview: characterImage,
       // imgURL: imageUrl,
       body: selectedTweetTemplate,
@@ -41,7 +41,7 @@ const Form = ({
     }
 
     const {
-      target = '<target>',
+      // target = '<target>',
       character = '<character>',
       // imgPreview,
       // imgURL,
@@ -50,8 +50,8 @@ const Form = ({
 
     if (
       body !== undefined &&
-      target !== undefined &&
-      target !== '<target>' &&
+      // target !== undefined &&
+      // target !== '<target>' &&
       // imgPreview !== undefined &&
       // imgURL !== undefined &&
       character !== undefined &&
@@ -66,7 +66,7 @@ const Form = ({
     let tweetContent
     if (body !== undefined) {
       updatedTweetBody = body
-        .replace('<target>', target)
+        // .replace('<target>', target)
         .replace('<character>', character)
 
       tweetContent = updatedTweetBody.replaceAll('#', '%23')
@@ -77,19 +77,19 @@ const Form = ({
     return (
       <div className='tweet-container'>
         <div className='form-container'>
-          <label className='step-label'>{labels.label_1.name}</label>
+          {/* <label className='step-label'>{labels.label_1.name}</label>
           <select
             onChange={({ target }) => {
               setSelectedTarget(target.value)
             }}
           >
-            <option value=''>Select Target</option>
+            <option value=''>{labels.label_1['input-label']}</option>
             {Object.keys(targets || {}).map((key, i) => (
               <option key={i} value={key}>
                 {targets[key].name}
               </option>
             ))}
-          </select>
+          </select> */}
 
           <label className='step-label'>{labels.label_2.name}</label>
           <select
@@ -99,7 +99,7 @@ const Form = ({
               // setCharacterImage(undefined)
             }}
           >
-            <option value=''>Select Species</option>
+            <option value=''>{labels.label_2['input-label']}</option>
             {Object.keys(characters || {}).map((key, i) => (
               <option key={i} value={key}>
                 {characters[key].name}

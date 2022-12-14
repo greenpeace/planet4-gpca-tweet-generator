@@ -64,7 +64,6 @@
 
 @media screen and (min-width: 668px) and (max-width: 1023px) {
   .tweet-container {
-    width: 70vw;
     margin: 0 auto;
   }
 }
@@ -76,7 +75,6 @@
 
     .form-container {
       margin-right: 2rem;
-      width: 40vw;
     }
   }
 }
@@ -84,19 +82,11 @@
 @media screen and (min-width: 1700px) and (max-width: 2099px) {
   .tweet-container {
     justify-content: center;
-
-    .form-container {
-      width: 30vw;
-    }
   }
 }
 
 @media screen and (min-width: 2100px) and (max-width: 3500px) {
   .tweet-container {
     justify-content: center;
-
-    .form-container {
-      width: 30vw;
-    }
   }
 }

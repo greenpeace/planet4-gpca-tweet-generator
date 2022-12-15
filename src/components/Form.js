@@ -30,7 +30,7 @@ const Form = ({
   try {
     const parsed = JSON.parse(data)
 
-    const { characters, targets, labels, button } = parsed
+    const { characters, targets, labels, button, preview_label } = parsed
 
     const tweet = {
       // target: targets?.[selectedTarget]?.['twitter-handle'],
@@ -42,7 +42,7 @@ const Form = ({
 
     const {
       // target = '<target>',
-      character = '<character>',
+      character = preview_label,
       // imgPreview,
       // imgURL,
       body,
@@ -55,7 +55,7 @@ const Form = ({
       // imgPreview !== undefined &&
       // imgURL !== undefined &&
       character !== undefined &&
-      character !== '<character>'
+      character !== preview_label
     ) {
       disabled = false
     } else {
@@ -64,12 +64,12 @@ const Form = ({
 
     let updatedTweetBody
     let tweetContent
-    if (body !== undefined) {
-      updatedTweetBody = body
-        // .replace('<target>', target)
-        .replace('<character>', character)
 
-      tweetContent = updatedTweetBody.replaceAll('#', '%23')
+    if (body !== undefined) {
+      if (body.includes(preview_label)) {
+        updatedTweetBody = body.replace(preview_label, character)
+        tweetContent = updatedTweetBody.replaceAll('#', '%23')
+      }
     }
 
     const tweetURL = `https://twitter.com/intent/tweet?text=${tweetContent}`
